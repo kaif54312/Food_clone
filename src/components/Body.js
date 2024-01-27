@@ -25,7 +25,6 @@ const Body = () => {
     const json = await data.json();
     setAllRestaurants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
     setFilteredRestaurants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
-    console.log(json)
   };
 
 
@@ -77,11 +76,11 @@ const Body = () => {
       <div className="restaurantlist">
        {
           filteredRestaurants.map((rest,index) => (
-            <Link to={"/restaurant/" + index}
+            <Link to={"/restaurant/" + rest.info.id}
             key={index}
             >
             
-            <RestaurantCard   resData={rest} />
+            <RestaurantCard resData={rest} />
             </Link>
 
           ))
